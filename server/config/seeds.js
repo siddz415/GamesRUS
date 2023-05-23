@@ -117,11 +117,11 @@ price: 14.99,
 quantity: 100
 },
 {
-name: 'Overwatch',
+name: 'Overwatch 2',
 category: categories[0]._id,
 description:
 'Join the team-based multiplayer shooter and compete in exciting matches.',
-image: 'overwatch.jpg',
+image: 'overwatch2.jpg',
 price: 39.99,
 quantity: 600
 }
