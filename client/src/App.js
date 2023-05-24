@@ -13,6 +13,7 @@ import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+// import Search from './pages/Search';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
@@ -57,6 +58,10 @@ function App() {
                 path="/signup" 
                 element={<Signup />} 
               />
+              {/* <Route 
+                path="/search" 
+                element={<Search />} 
+              /> */}
               <Route 
                 path="/success" 
                 element={<Success />} 

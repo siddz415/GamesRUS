@@ -5,7 +5,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-function ProductItem(item) {
+function GameItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -48,7 +48,7 @@ function ProductItem(item) {
         />
         <p>{name}</p>
       </Link>
-      <div>
+      <div className="quat">
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
         <span>${price}</span>
       </div>
@@ -57,4 +57,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default GameItem;
