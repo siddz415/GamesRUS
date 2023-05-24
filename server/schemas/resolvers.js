@@ -1,12 +1,12 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
-const { signToken } = require('../utils/auth');
+const { UnauthorizedError } = require('apollo-server-express');
+const { MyUser, MyProduct, MyCategory, MyOrder } = require('../models');
+const { generateAuthToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
-const resolvers = {
+const myResolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await MyCategory.find();
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -21,14 +21,14 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('category');
+      return await MyProduct.find(params).populate('category');
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await MyProduct.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
+        const user = await MyUser.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         });
@@ -38,11 +38,11 @@ const resolvers = {
         return user;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new UnauthorizedError('Not authorized');
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
+        const user = await MyUser.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         });
@@ -50,11 +50,11 @@ const resolvers = {
         return user.orders.id(_id);
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new UnauthorizedError('Not authorized');
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+      const order = new MyOrder({ products: args.products });
       const line_items = [];
 
       const { products } = await order.populate('products');
@@ -91,53 +91,53 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
+      const user = await MyUser.create(args);
+      const token = generateAuthToken(user);
 
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
+        const order = new MyOrder({ products });
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        await MyUser.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
         return order;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new UnauthorizedError('Not authorized');
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        return await MyUser.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new UnauthorizedError('Not authorized');
     },
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await MyProduct.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await MyUser.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new UnauthorizedError('Invalid credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const validPassword = await user.isValidPassword(password);
 
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+      if (!validPassword) {
+        throw new UnauthorizedError('Invalid credentials');
       }
 
-      const token = signToken(user);
+      const token = generateAuthToken(user);
 
       return { token, user };
     }
   }
 };
 
-module.exports = resolvers;
+module.exports = myResolvers;

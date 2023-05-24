@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const myDatabase = require('mongoose');
 
-const { Schema } = mongoose;
+const { Schema } = myDatabase;
 
-const orderSchema = new Schema({
+const myOrderSchema = new Schema({
   purchaseDate: {
     type: Date,
     default: Date.now
@@ -15,6 +15,6 @@ const orderSchema = new Schema({
   ]
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const MyOrder = myDatabase.model('Order', myOrderSchema);
 
-module.exports = Order;
+module.exports = MyOrder;
