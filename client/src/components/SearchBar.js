@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Card from '../pages/Game.js'
-// import { Card } from 'antd';
 
-// const { Meta } = Card;
+import Card from '../pages/Game.js'
+
+
 function SearchBar() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
@@ -34,6 +34,7 @@ function SearchBar() {
 
                 <button type="submit">Search</button>
             </form>
+
             {results.map((game) => {
                 return (
                     <Card name={game.name} description={game.description} background={game.background_image} />
@@ -43,6 +44,7 @@ function SearchBar() {
             <div className='app'>
                 <Card title='My Card' description='' />
             </div>
+
 
 
 

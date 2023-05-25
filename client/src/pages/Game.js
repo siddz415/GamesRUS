@@ -1,22 +1,12 @@
 
-// import React from 'react';
-// import xbox from "../assets/xbox.png";
+
+ import React from 'react';
+import xbox from "../assets/xbox.png";
 import SearchBar from "../components/SearchBar";
-// // const Search = () => {
-// //     return (
-// //      <div>   
-// //         <SearchBar/>
-       
-// </div>   
-//     )
-// };
 
-// export default Search;
-
-//This bottom code is the new one im working on
 
 import React from 'react';
-// import './card.css';
+
 
 const Card = (props) => {
     console.log(props)
@@ -36,7 +26,7 @@ const Card = (props) => {
             </div>
             </div>
         </div>
-        {/* <img src={xbox} alt="pic" className='ps5'/> */}
+        {<img src={xbox} alt="pic" className='ps5'/>}
         </div>
         
     )
