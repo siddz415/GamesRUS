@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import ProductItem from '../ProductItem';
-import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { useStoreContext } from '../../utils/GlobalState';
+import GameItem from '../GameItem';
+import spinner from '../../assets/spinner.gif';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function GameList() {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -49,7 +49,7 @@ function ProductList() {
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
-            <ProductItem
+            <GameItem
               key={product._id}
               _id={product._id}
               image={product.image}
@@ -60,11 +60,11 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>You haven't added any games yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }
 
-export default ProductList;
+export default GameList;
