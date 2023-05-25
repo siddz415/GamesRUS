@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-// import Card from '@mui/material/Card';
-// import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
-// import Typography from '@mui/material/Typography';
-// import { CardActionArea } from '@mui/material';
+
+import Card from '../pages/Game.js'
+
+
 function SearchBar() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
@@ -19,11 +18,14 @@ function SearchBar() {
         });
         const data = await response.json();
         console.log(data)
-        setResults(data);
-
+        setResults([data]);
+        console.log(setResults)
     };
+    console.log(results)
 
+    // const App = () =>{
     return (
+
         <div>
             <form onSubmit={handleSearch}>
                 <input type="text" value={query}
@@ -32,26 +34,20 @@ function SearchBar() {
 
                 <button type="submit">Search</button>
             </form>
-            {/* {results && (
-            <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={results.background_image}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {results.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-           {results.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-     )}  */}
+
+            {results.map((game) => {
+                return (
+                    <Card name={game.name} description={game.description} background={game.background_image} />
+                )
+            }
+            )}
+            <div className='app'>
+                <Card title='My Card' description='' />
+            </div>
+
+
+
+
         </div>
     )
 }
