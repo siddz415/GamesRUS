@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "antd": "^5.5.1"
+    "antd": "^5.5.1",
+    "semantic-ui-segment": "^2.5.0"
   }
 }
