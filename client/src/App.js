@@ -13,7 +13,7 @@ import Signup from './pages/Signup';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Home from './pages/Home';
-import Search from './pages/Search';
+import Game from './pages/Game';
 import Nav from './components/Nav';
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
@@ -60,7 +60,7 @@ function App() {
               />
               <Route 
                 path="/search" 
-                element={<Search />} 
+                element={<Game />} 
               />
               <Route 
                 path="/success" 

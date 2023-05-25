@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-// import { Card } from 'antd';
-
-// const { Meta } = Card;
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { CardActionArea } from '@mui/material';
 function SearchBar() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
@@ -13,7 +15,7 @@ function SearchBar() {
             headers: {
                 'X-RapidAPI-Key': '43a2bcc45cmshefbee6180e2b70fp160174jsn60117875f485',
                 'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
-              }
+            }
         });
         const data = await response.json();
         console.log(data)
@@ -30,15 +32,26 @@ function SearchBar() {
 
                 <button type="submit">Search</button>
             </form>
-            {/* {results &&  (
-                <Card key={results.id}>
-                hoverable
-    style={{ width: 240 }}
-    cover={<img alt="example" src={results.background_image} />}
-  
-    <Meta title={results.name} description={results.description} />
-                </Card>
-            )} */}
+            {/* {results && (
+            <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={results.background_image}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {results.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+           {results.description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+     )}  */}
         </div>
     )
 }
