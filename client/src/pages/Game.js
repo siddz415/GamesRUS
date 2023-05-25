@@ -23,7 +23,7 @@ const Card = (props) => {
             
         
         
-        <div className='card'>
+        <div className='card float-left'>
             <div className='card-header'>
                 <h3>{props.name}</h3>
             </div>
