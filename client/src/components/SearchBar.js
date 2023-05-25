@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Card from '../pages/Game.js'
 // import { Card } from 'antd';
 
 // const { Meta } = Card;
@@ -13,15 +14,18 @@ function SearchBar() {
             headers: {
                 'X-RapidAPI-Key': '43a2bcc45cmshefbee6180e2b70fp160174jsn60117875f485',
                 'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
-              }
+            }
         });
         const data = await response.json();
         console.log(data)
-        setResults(data);
-
+        setResults([data]);
+        console.log(setResults)
     };
+    console.log(results)
 
+    // const App = () =>{
     return (
+
         <div>
             <form onSubmit={handleSearch}>
                 <input type="text" value={query}
@@ -30,15 +34,18 @@ function SearchBar() {
 
                 <button type="submit">Search</button>
             </form>
-            {/* {results &&  (
-                <Card key={results.id}>
-                hoverable
-    style={{ width: 240 }}
-    cover={<img alt="example" src={results.background_image} />}
-  
-    <Meta title={results.name} description={results.description} />
-                </Card>
-            )} */}
+            {results.map((game) => {
+                return (
+                    <Card name={game.name} description={game.description} background={game.background_image} />
+                )
+            }
+            )}
+            <div className='app'>
+                <Card title='My Card' description='This is my card component' />
+            </div>
+
+
+
         </div>
     )
 }
