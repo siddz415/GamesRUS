@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+// import { Card } from 'antd';
 
+// const { Meta } = Card;
 function SearchBar() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
@@ -28,9 +30,15 @@ function SearchBar() {
 
                 <button type="submit">Search</button>
             </form>
-            {results &&  (
-                <div key={results.id}>{results.name}</div>
-            )}
+            {/* {results &&  (
+                <Card key={results.id}>
+                hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src={results.background_image} />}
+  
+    <Meta title={results.name} description={results.description} />
+                </Card>
+            )} */}
         </div>
     )
 }
