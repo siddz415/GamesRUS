@@ -71,7 +71,14 @@ function App() {
                   <SearchBar />}
               />
               <Route
-                path="/"
+                path="/search/:reviewName"
+
+                element={
+
+                  <SearchBar />}
+              />
+              <Route
+                path="/latestreviews"
                 element={<LatestReviews />}
               />
 
