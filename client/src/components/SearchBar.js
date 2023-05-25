@@ -27,7 +27,7 @@ function SearchBar() {
     return (
 
         <div>
-            <form onSubmit={handleSearch}>
+            <form className='float' onSubmit={handleSearch}>
                 <input type="text" value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />

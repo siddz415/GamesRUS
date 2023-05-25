@@ -223,15 +223,14 @@ input:focus {
 }
 
 .float-left {
-  padding: 20px;
   float: left;
-  width: 50%;
+  width: 300px;
   height: 500px;
-  height: 750px;
-    overflow: auto;
-    padding: 1em;
-    margin: 1em;
-    background: rgba(48, 80, 170, 0.3);
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid white;
+  background: rgba(48, 80, 170, 0.3);
+
 }
 
 @media screen and (max-width: 768px) {
@@ -250,17 +249,19 @@ input:focus {
   z-index: 100;
 
 }
+
 @keyframes ps5 {
-  0%{
-      transform: rotate(1turn);
-      position: absolute;
-      right: -500px;
-      top: 100px;
+  0% {
+    transform: rotate(1turn);
+    position: absolute;
+    right: -500px;
+    top: 100px;
   }
-  100%{
-      position: absolute;
-      right: 100px;
-      top: 100px;
+
+  100% {
+    position: absolute;
+    right: 100px;
+    top: 100px;
   }
 }
 
@@ -269,18 +270,21 @@ img {
   height: 20rem; */
   animation: floatImage 4s ease-in-out infinite;
 }
+
 @keyframes floatImage {
   0% {
-      transform: translate(0);
-      opacity: 100%;
+    transform: translate(0);
   }
 
   50% {
-      transform: translate(2.4rem);
-      opacity: 80%;
+    transform: translate(2.4rem);
   }
+
   100% {
-      transform: translate(0);
-      opacity: 0%;
+    transform: translate(0);
   }
+}
+
+.float {
+  padding-bottom: 20px;
 }
