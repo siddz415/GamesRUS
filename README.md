@@ -24,11 +24,11 @@ GamesRUS is a game retailer app where you can buy new games.
 * GraphQl
 
 ### Gif
-![](./Assets/22-state-homework-demo-01.gif)
+![](./Assets/game.gif)
 
 ### links
 # github
 # https://github.com/siddz415/GamesRUS
 
 # Heroku
-# https://redux-state.herokuapp.com/
+# https://gamesruss.herokuapp.com/
