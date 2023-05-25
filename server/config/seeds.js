@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Game, Category } = require('../models');
 
 db.once('open', async () => {
 
@@ -15,9 +15,9 @@ db.once('open', async () => {
 
     console.log('categories seeded');
 
-    await Product.deleteMany();
+    await Game.deleteMany();
 
-    const products = await Product.insertMany([
+    const games = await Game.insertMany([
         {
             name: 'The Witcher 3: Wild Hunt',
             description:
@@ -128,7 +128,7 @@ db.once('open', async () => {
         }
     ]);
 
-    console.log('products seeded');
+    console.log('games seeded');
 
     await User.deleteMany();
 
@@ -139,7 +139,7 @@ db.once('open', async () => {
         password: 'password12345',
         orders: [
             {
-                products: [products[0]._id, products[0]._id, products[1]._id]
+                games: [games[0]._id, games[0]._id, games[1]._id]
             }
         ]
     });
