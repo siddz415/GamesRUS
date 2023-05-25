@@ -231,7 +231,7 @@ input:focus {
     overflow: auto;
     padding: 1em;
     margin: 1em;
-    background: rgba(76, 175, 80, 0.3);
+    background: rgba(48, 80, 170, 0.3);
 }
 
 @media screen and (max-width: 768px) {
