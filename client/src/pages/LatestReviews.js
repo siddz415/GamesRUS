@@ -32,8 +32,9 @@ const LatestReviews = () => {
           <li key={review.id}>
             <h2><Link to={`/search/${review.name}`}>{review.name}
             </Link></h2>
-            <p>{review.tier}</p>
-            <img src={`https://img.opencritic.com/${review.images.banner.sm}`} />
+            <p>Review Tier: {review.tier}</p>
+            <p>Highest Score: {review.topCriticScore}</p>
+            <a href={`https://opencritic.com/${review.images.banner.sm}`}><img src={`https://img.opencritic.com/${review.images.banner.sm}`} /></a>
           </li>
         ))}
       </ul>
