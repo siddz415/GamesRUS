@@ -2,6 +2,7 @@ import React from "react";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
 import GameList from "../components/GameList";
+import LatestReviews from "./LatestReviews";
 // import { Carousel } from 'antd';
 // import SearchBar from "../components/SearchBar";
 // const contentStyle = {
