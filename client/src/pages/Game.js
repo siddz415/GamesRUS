@@ -1,4 +1,6 @@
+
 // import React from 'react';
+// import xbox from "../assets/xbox.png";
 import SearchBar from "../components/SearchBar";
 // // const Search = () => {
 // //     return (
@@ -23,7 +25,7 @@ const Card = (props) => {
             
         
         
-        <div className='card'>
+        <div className='card float-left'>
             <div className='card-header'>
                 <h3>{props.name}</h3>
             </div>
@@ -34,8 +36,20 @@ const Card = (props) => {
             </div>
             </div>
         </div>
+        {/* <img src={xbox} alt="pic" className='ps5'/> */}
         </div>
+        
     )
 }
 
 export default Card;
+
+
+
+
+
+
+
+        
+
+

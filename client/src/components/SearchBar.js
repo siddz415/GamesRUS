@@ -41,7 +41,7 @@ function SearchBar() {
             }
             )}
             <div className='app'>
-                <Card title='My Card' description='This is my card component' />
+                <Card title='My Card' description='' />
             </div>
 
 
