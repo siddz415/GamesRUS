@@ -41,7 +41,7 @@ function Nav() {
           </li>
           <li className="mx-1">
             <Link to="/latestreviews">
-              Games
+              Latest Reviews
             </Link>
           </li>
         </ul>
