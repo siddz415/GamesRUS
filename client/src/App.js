@@ -13,11 +13,14 @@ import Signup from './pages/Signup';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Home from './pages/Home';
-import Game from './pages/Game';
+
+import Search from './pages/Game';
+
 import Nav from './components/Nav';
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import { StoreProvider } from './utils/GlobalState';
+import SearchBar from './components/SearchBar';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,6 +48,7 @@ function App() {
         <div>
           <StoreProvider>
             <Nav />
+           
             <Routes>
               <Route 
                 path="/" 
@@ -60,8 +64,12 @@ function App() {
               />
               <Route 
                 path="/search" 
-                element={<Game />} 
-              />
+
+                element={
+                
+                <SearchBar />} 
+              /> 
+
               <Route 
                 path="/success" 
                 element={<Success />} 
