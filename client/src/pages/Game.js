@@ -1,12 +1,16 @@
+
 import React from 'react';
 import SearchBar from "../components/SearchBar";
-const Search = () => {
+import xbox from "../assets/xbox.png";
+
+const Game = () => {
     return (
      <div>   
         <SearchBar/>
-       
+
+        <img src={xbox} alt="pic" className='ps5'/>
 </div>   
     )
 };
 
-export default Search;
+export default Game;

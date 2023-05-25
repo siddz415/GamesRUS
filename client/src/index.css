@@ -226,3 +226,41 @@ input:focus {
   }
 
 }
+
+.ps5 {
+  position: absolute;
+  right: 100px;
+  top: 100px;
+  animation: ps5;
+  animation-duration: 2s;
+}
+@keyframes ps5 {
+  0%{
+      transform: rotate(1turn);
+      position: absolute;
+      right: -500px;
+      top: 100px;
+  }
+  100%{
+      position: absolute;
+      right: 100px;
+      top: 100px;
+  }
+}
+
+img {
+  /* width: 20rem;
+  height: 20rem; */
+  animation: floatImage 4s ease-in-out infinite;
+}
+@keyframes floatImage {
+  0% {
+      transform: translate(0);
+  }
+  50% {
+      transform: translate(2.4rem);
+  }
+  100% {
+      transform: translate(0);
+  }
+}
