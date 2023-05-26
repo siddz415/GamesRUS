@@ -220,7 +220,7 @@ input:focus {
   color: bisque;
 }
 
-.float-left {
+.left {
   float: left;
   width: 300px;
   height: 500px;
