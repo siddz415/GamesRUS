@@ -25,7 +25,7 @@ Like platform and review info to help make purchasing decisions
 
 ## Credits
 ​
-A project by Sidd Dravid, Damek Hanson, Michael Falcon, Nathan Johnson
+A project by Sidd Dravid, Damek Hanson, Michael Alvaro, Nathan Johnson
 
 ## Tech Stack
 * React
