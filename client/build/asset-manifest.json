@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fa781897.css",
+    "main.js": "/static/js/main.aebcc684.js",
+    "static/media/xbox.png": "/static/media/xbox.7597bd7e7b9286905ac5.png",
+    "static/media/spinner.gif": "/static/media/spinner.7e729fecb0d7593e9557.gif",
+    "static/media/game.jpg": "/static/media/game.8cedaa1582a953ba809d.jpg",
+    "index.html": "/index.html",
+    "main.fa781897.css.map": "/static/css/main.fa781897.css.map",
+    "main.aebcc684.js.map": "/static/js/main.aebcc684.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa781897.css",
+    "static/js/main.aebcc684.js"
+  ]
+}

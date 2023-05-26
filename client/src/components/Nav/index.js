@@ -39,6 +39,11 @@ function Nav() {
               Games
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/latestreviews">
+              Latest Reviews
+            </Link>
+          </li>
         </ul>
       );
     }
