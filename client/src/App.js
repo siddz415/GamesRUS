@@ -13,11 +13,15 @@ import Signup from './pages/Signup';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Home from './pages/Home';
-import Game from './pages/Game';
+
+import Search from './pages/Game';
+
 import Nav from './components/Nav';
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import { StoreProvider } from './utils/GlobalState';
+import SearchBar from './components/SearchBar';
+import LatestReviews from './pages/LatestReviews';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,38 +49,54 @@ function App() {
         <div>
           <StoreProvider>
             <Nav />
+
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
+              <Route
+                path="/"
+                element={<Home />}
               />
-              <Route 
-                path="/login" 
-                element={<Login />} 
+              <Route
+                path="/login"
+                element={<Login />}
               />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
+              <Route
+                path="/signup"
+                element={<Signup />}
               />
-              <Route 
-                path="/search" 
-                element={<Game />} 
+              <Route
+                path="/search"
+
+                element={
+
+                  <SearchBar />}
               />
-              <Route 
-                path="/success" 
-                element={<Success />} 
+              <Route
+                path="/search/:reviewName"
+
+                element={
+
+                  <SearchBar />}
               />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
+              <Route
+                path="/latestreviews"
+                element={<LatestReviews />}
               />
-              <Route 
-                path="/products/:id" 
-                element={<Detail />} 
+
+              <Route
+                path="/success"
+                element={<Success />}
               />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
+              <Route
+                path="/orderHistory"
+                element={<OrderHistory />}
+              />
+              <Route
+                path="/products/:id"
+                element={<Detail />}
+              />
+              <Route
+                path="*"
+                element={<NoMatch />}
               />
             </Routes>
           </StoreProvider>

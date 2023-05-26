@@ -77,6 +77,8 @@ p {
   font-size: 1.1rem;
   margin-top: 0;
   color: bisque;
+  position: relative;
+  z-index: 150;
 }
 
 a {
@@ -220,6 +222,17 @@ input:focus {
   color: bisque;
 }
 
+.left {
+  float: left;
+  width: 300px;
+  height: 500px;
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid white;
+  background: rgba(48, 80, 170, 0.3);
+
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
@@ -233,18 +246,22 @@ input:focus {
   top: 100px;
   animation: ps5;
   animation-duration: 2s;
+  z-index: 100;
+
 }
+
 @keyframes ps5 {
-  0%{
-      transform: rotate(1turn);
-      position: absolute;
-      right: -500px;
-      top: 100px;
+  0% {
+    transform: rotate(1turn);
+    position: absolute;
+    right: -500px;
+    top: 100px;
   }
-  100%{
-      position: absolute;
-      right: 100px;
-      top: 100px;
+
+  100% {
+    position: absolute;
+    right: 100px;
+    top: 100px;
   }
 }
 
@@ -253,14 +270,21 @@ img {
   height: 20rem; */
   animation: floatImage 4s ease-in-out infinite;
 }
+
 @keyframes floatImage {
   0% {
-      transform: translate(0);
+    transform: translate(0);
   }
+
   50% {
-      transform: translate(2.4rem);
+    transform: translate(2.4rem);
   }
+
   100% {
-      transform: translate(0);
+    transform: translate(0);
   }
+}
+
+.float {
+  padding-bottom: 20px;
 }
