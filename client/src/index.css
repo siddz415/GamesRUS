@@ -77,6 +77,8 @@ p {
   font-size: 1.1rem;
   margin-top: 0;
   color: bisque;
+  position: relative;
+  z-index: 150;
 }
 
 a {
@@ -227,6 +229,7 @@ input:focus {
   overflow: auto;
   padding: 20px;
   border: 1px solid white;
+  background: rgba(48, 80, 170, 0.3);
 
 }
 
@@ -243,6 +246,8 @@ input:focus {
   top: 100px;
   animation: ps5;
   animation-duration: 2s;
+  z-index: 100;
+
 }
 
 @keyframes ps5 {

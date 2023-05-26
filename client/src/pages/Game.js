@@ -1,11 +1,10 @@
 
 
-//  import React from 'react';
+import React from 'react';
 import xbox from "../assets/xbox.png";
 import SearchBar from "../components/SearchBar";
 
 
-import React from 'react';
 
 
 const Card = (props) => {
