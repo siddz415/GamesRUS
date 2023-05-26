@@ -61,9 +61,9 @@ function SearchBar() {
                 )
             }
             )}
-            <div className='app'>
+            {/* <div className='app'>
                 <Card title='My Card' description='' />
-            </div>
+            </div> */}
 
 
 

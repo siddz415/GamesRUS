@@ -11,7 +11,10 @@ const Card = (props) => {
     console.log(props)
     return (
         <div>
-        <div className='card float-left'>
+            
+        
+        
+        <div className='card left'>
             <div className='card-header'>
                 <h3>{props.name}</h3>
             </div>
