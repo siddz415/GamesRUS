@@ -8,10 +8,10 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
-  UPDATE_PRODUCTS,
+  UPDATE_GAMES,
 } from '../utils/actions';
 import spinner from '../assets/spinner.gif';
-import { QUERY_PRODUCTS } from '../utils/queries';
+import { QUERY_GAMES } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 
 function Detail() {
@@ -20,36 +20,36 @@ function Detail() {
 
   const [currentGame, setcurrentGame] = useState({});
 
-  const { products, cart } = state;                           
+  const { games, cart } = state;                           
   
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_GAMES);
 
   useEffect(() => {
     // already in global store
-    if (products.length) {
-      setcurrentGame(products.find((product) => product._id === id));
+    if (games.length) {
+      setcurrentGame(games.find((game) => game._id === id));
     }
     // retrieved from server
     else if (data) {
       dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
+        type: UPDATE_GAMES,
+        games: data.games,
       });
 
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.games.forEach((game) => {
+        idbPromise('games', 'put', game);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
+      idbPromise('games', 'get').then((indexedGames) => {
         dispatch({
-          type: UPDATE_PRODUCTS,
-          products: indexedProducts,
+          type: UPDATE_GAMES,
+          games: indexedGames,
         });
       });
     }
-  }, [products, data, loading, dispatch, id]);
+  }, [games, data, loading, dispatch, id]);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
@@ -66,7 +66,7 @@ function Detail() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentGame, purchaseQuantity: 1 },
+        game: { ...currentGame, purchaseQuantity: 1 },
       });
       idbPromise('cart', 'put', { ...currentGame, purchaseQuantity: 1 });
     }

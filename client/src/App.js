@@ -81,10 +81,9 @@ function App() {
                 path="/latestreviews"
                 element={<LatestReviews />}
               />
-
-              <Route
-                path="/success"
-                element={<Success />}
+              <Route 
+                path="/games/:id" 
+                element={<Detail />} 
               />
               <Route
                 path="/orderHistory"

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_GAMES } from '../../utils/actions';
 import { useStoreContext } from '../../utils/GlobalState';
 import GameItem from '../GameItem';
 import spinner from '../../assets/spinner.gif';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
 function GameList() {
@@ -12,50 +12,50 @@ function GameList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_GAMES);
 
   useEffect(() => {
     if (data) {
       dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
+        type: UPDATE_GAMES,
+        games: data.games,
       });
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.games.forEach((game) => {
+        idbPromise('games', 'put', game);
       });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise('games', 'get').then((games) => {
         dispatch({
-          type: UPDATE_PRODUCTS,
-          products: products,
+          type: UPDATE_GAMES,
+          games: games,
         });
       });
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  function filterGames() {
     if (!currentCategory) {
-      return state.products;
+      return state.games;
     }
 
-    return state.products.filter(
-      (product) => product.category._id === currentCategory
+    return state.games.filter(
+      (game) => game.category._id === currentCategory
     );
   }
 
   return (
     <div className="my-2">
-      {/* <h2>Our Products:</h2> */}
-      {state.products.length ? (
+      {/* <h2>Our Games:</h2> */}
+      {state.games.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
+          {filterGames().map((game) => (
             <GameItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+              key={game._id}
+              _id={game._id}
+              image={game.image}
+              name={game.name}
+              price={game.price}
+              quantity={game.quantity}
             />
           ))}
         </div>
